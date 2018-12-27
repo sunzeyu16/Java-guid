@@ -194,3 +194,7 @@ java.lang.ArithmeticException: / by zero
 44.抽象方法不能被private修饰（抽象类抽象的东西一定要被继承）
  
 45 Integer number too large  定义值（整数）过大
+
+
+
+
