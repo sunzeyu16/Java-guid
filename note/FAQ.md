@@ -110,91 +110,89 @@ array required, but java.lang.String found
     required: java.io.File[]
     File [] a3 = a11.list()；
     中文说明 不兼容的类型
-
-21. 非静态方法不能在静态上下文中引用
+    
+20. 非静态方法不能在静态上下文中引用
     non-static method cannot be referenced from a static context
   
-22. 不是静态方法而用静态方式调用（类名。方法）
+21. 不是静态方法而用静态方式调用（类名。方法）
     Main.java:5: non-static method fun1() cannot be referenced from a static context
                            Test.fun1();
 
-23. 静态访问非静态（变量）
+22. 静态访问非静态（变量）
     Test.java:5: non-static variable a cannot be referenced from a static context
         a = 1000; 
         
-24. 静态访问非静态（方法）
+23. 静态访问非静态（方法）
     Test.java:6: non-static method fun1() cannot be referenced from a static context
             fun1();                    // 静态的不能调用非静   
             
-25. continue outside of  loop   (将continue放在for循环外的时候出现的错误报告)
+24. continue outside of  loop   (将continue放在for循环外的时候出现的错误报告)
 
-26. illegal start of expression  违反规则的表达（将for循环中第二表达放置于for循环外或内部时出现的错误报告）
+25. illegal start of expression  违反规则的表达（将for循环中第二表达放置于for循环外或内部时出现的错误报告）
 
-27. asa.java:6: unreachable statement     
-不能到达的语句（语句放于continue或break后出
-现不能到达，及continue和break后不能有语句）
+26. asa.java:6: unreachable statement     
+    不能到达的语句（语句放于continue或break后出
+    现不能到达，及continue和break后不能有语句）
 
-28 break置于循环语句外
-asa.java:8: break outside switch or loop
- break;
-        ^
-1 error
-
-29- 标识符错误（标识符不合法）；
-asa.java:2: <identifier> expected
- int %%;
+27. break置于循环语句外
+    asa.java:8: break outside switch or loop
+     break;
             ^
 1 error
 
-30. 没找到方法体，或声明为抽象的（方法）
-   MyAbstract.java:6: missing method body, or declare abstract
-   
-31. 这个类不是抽象类    或者没有覆盖  重写方法fun1()   有抽象的方法的就必须是抽象类
-MyAbstract.java:1: MyAdstract is not abstract and does not override abstract method fun1() in MyAdstract
+28. 标识符错误（标识符不合法）；
+    asa.java:2: <identifier> expected
+     int %%;
+                ^
+    1 error
 
-32. Myabstract 它是属于抽象类的，不能产生对象。
-3.Main.java:6: Myabstract is abstract; cannot be instantiated
+29. 没找到方法体，或声明为抽象的（方法）
+    MyAbstract.java:6: missing method body, or declare abstract
 
-33. 接口的方法不能有方法体
-4  MyInterface.java:2: interface methods cannot have body
+30. 这个类不是抽象类    或者没有覆盖  重写方法fun1()   有抽象的方法的就必须是抽象类
+    MyAbstract.java:1: MyAdstract is not abstract and does not override abstract method fun1() in MyAdstract
 
-34, .它是属于抽象类的，不能产生实体
-Myabstract is abstract; cannot be instantiated
+31. Myabstract 它是属于抽象类的，不能产生对象。
+    3.Main.java:6: Myabstract is abstract; cannot be instantiated
 
-35. 接口的方法不能有方法体
-interface methods cannot have body
+32. 接口的方法不能有方法体
+    4  MyInterface.java:2: interface methods cannot have body
 
-36. 此处不允许使用static修饰
-asa.java:3: modifier static not allowed here
- public static void main(String []args){
-                           ^
-                                              ^
-37—不能改变的类型（String 型 不能转换成Int型）
-asa.java:4: inconvertible types
-found   : java.lang.String
-required: int
-  int b=(int)a;
-                           ^
-1 error
+33. 它是属于抽象类的，不能产生实体
+    Myabstract is abstract; cannot be instantiated
 
-38.possible loss of precision  found: long ;required:byte ; var=varlong  可能造成精度损失（在整型较大的转换成较小的情况下会造成损失，小的转大的，则不会造成损失。）
+34. 接口的方法不能有方法体
+    interface methods cannot have body
 
-39分隔符异常
-asa.java:5: ';' expected
-40 括号异常
-asa.java:8: '}' expected
-41. 应用程序试图创建大小为负的数组。
- java.lang.NegativeArraySizeException
-42. 出现异常的运算条件
-java.lang.ArithmeticException: / by zero
-        at Test2.test(Test2.java:16)
-        at Test2.main(Test2.java:5)
-43抽象方法不能被final修饰（抽象类的抽象的东西一定要被继承）
+35. 此处不允许使用static修饰
+    asa.java:3: modifier static not allowed here
+     public static void main(String []args){
+                               ^  ^
+                               
+36. 不能改变的类型（String 型 不能转换成Int型）
+    asa.java:4: inconvertible types
+    found   : java.lang.String
+    required: int
+      int b=(int)a;
+                               ^
+    1 error
+    
+37. possible loss of precision  found: long ;required:byte ; var=varlong  可能造成精度损失（在整型较大的转换成较小的情况下会造成损失，小的转大的，则不会造成损失。）
+
+38. 分隔符异常
+    asa.java:5: ';' expected
+39. 括号异常
+    asa.java:8: '}' expected
+40. 应用程序试图创建大小为负的数组。
+    java.lang.NegativeArraySizeException
+41. 出现异常的运算条件
+    java.lang.ArithmeticException: / by zero
+            at Test2.test(Test2.java:16)
+            at Test2.main(Test2.java:5)
+42. 抽象方法不能被final修饰（抽象类的抽象的东西一定要被继承）
  
-44.抽象方法不能被private修饰（抽象类抽象的东西一定要被继承）
+43. 抽象方法不能被private修饰（抽象类抽象的东西一定要被继承）
  
-45 Integer number too large  定义值（整数）过大
+44. Integer number too large  定义值（整数）过大
 
-
-
-
+45. 本次更新
