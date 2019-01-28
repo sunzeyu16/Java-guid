@@ -1,0 +1,17 @@
+{
+  "name": "words625",
+  "version": "1.0.0",
+  "description": "learn words625",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "words625"
+  ],
+  "author": "bruce.bnu@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "wordnet-db": "^3.1.11"
+  }
+}
