@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>2-1-什么是数组</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+</body>
+
+
+<script type="text/javascript">
+	
+	/**
+ 	 * 加入有这样一个需求：保存所在城市每个月的平均温度
+ 	 */
+	var averageTempJan = 31.9;
+	var averageTempFeb = 35.3;
+	var averageTempMar = 42.4;
+	var averageTempApr = 52;
+	var averageTempMay = 60.8;
+
+	console.log('平均温度', averageTempMay, averageTempFeb, averageTempMar, averageTempApr, averageTempMay);
+
+	// 这样肯定不是最好的方案。如果保存几年的平均温度呢？幸运的是，我们可以用数组来解决，更加简洁地呈现同样的信息。
+	var averageTemp = [];
+	averageTemp[0] = 31.9;
+	averageTemp[1] = 35.3;
+	averageTemp[2] = 42.4;
+	averageTemp[3] = 52;
+	averageTemp[4] = 60.8;
+
+	console.log('平均温度数组', averageTemp);
+	// console.log(averageTemp.typeOf);
+</script>
+
+</html>
