@@ -48,19 +48,19 @@
 	 * 已知斐波那契数列中第一个数字是1，第二个是2，从第三项开始，每一项都等于前两项之和：
 	 */
 	var fibonacci = []; // {1}
-	fibonacci[1] = 1; // {2}
-	fibonacci[2] = 2; // {3}
+	fibonacci[1]  = 1; // {2}
+	fibonacci[2]  = 2; // {3}
 
-	for (var i = 3; i < 20; i++)
-	{
-		fibonacci[i] = fibonacci[i - 1] +fibonacci[i - 2]; // {4}
-	}
-
-	for (var i = 1; i < fibonacci.length; i++)
-	{
+		for (var i = 3; i < 20; i++)
+		{
+			fibonacci[i] = fibonacci[i - 1] +fibonacci[i - 2]; // {4}
+		}
+		
+		for (var i = 1; i < fibonacci.length; i++)
+		{
 		// {5}			
-		console.log('斐波那契数列', i, fibonacci[i]);  // {6}
-	}
+			console.log('斐波那契数列', i, fibonacci[i]);  // {6}
+		}
 	/**
 	 * 声明并创建了一个数组{1}.
 	 * 第{2},{3}行，把斐波那契数列中的前两个数字分别赋值给了数组的第二位和第三位(在JavaScript中数组的第一位是0，这里略过了，从第二位开始分别保存斐波那契数列对应的位置元素)

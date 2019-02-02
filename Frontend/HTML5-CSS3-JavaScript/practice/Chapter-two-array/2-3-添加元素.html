@@ -44,19 +44,19 @@
 	 * 并且将对应的前一个元素的值赋给它，依次处理。
 	 * 最后把我们想要的赋值给第一个位置上，(-1)的位置
 	 */
-	for (var i = numbers.length; i >= 0; i--)
-	{
-		numbers[i] = numbers[i - 1];
-	}
-	numbers[0] = -1;
-	
-	console.log('2-3-2插入数组首位', numbers);
-
-	// unshift方法
-	numbers.unshift(-2);
-	console.log('unshift 添加 -2', numbers);
-	numbers.unshift(-4, -3);
-	console.log('unshift 添加 -3, -4', numbers);
+		for (var i = numbers.length; i >= 0; i--)
+		{
+			numbers[i] = numbers[i - 1];
+		}
+		numbers[0] = -1;
+		
+		console.log('2-3-2插入数组首位', numbers);
+		
+		// unshift方法
+		numbers.unshift(-2);
+		console.log('unshift 添加 -2', numbers);
+		numbers.unshift(-4, -3);
+		console.log('unshift 添加 -3, -4', numbers);
 
 </script>
 
