@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<script src='./vue.js'></script>
+</head>
+<body>
+	
+	<div id='app'>{{content}}</div>
+
+
+
+	<script type="text/javascript">
+
+		// var dom = document.getElementById('app');
+		// dom.innerHTML = 'hello world';
+
+		var app = new Vue(  // 创建了一个Vue实例
+		{
+			el: '#app',  // 这个Vue实例去接管，Id= 'app'标签内的所有内容
+			data:  //  定义了一个数据
+			{
+				content: 'Hello World 2'   // {{}} 差值表达式  调用花括号里的数据
+			}
+		})
+		
+
+		setTimeout(function()
+		{	
+			app.$data.content = '新年快乐'
+		}, 2000)
+
+
+
+	</script>
+
+
+</body>
+</html>
