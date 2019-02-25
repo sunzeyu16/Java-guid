@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3-7-Vue中的条件选择</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<div v-if="show">
+			用户名: <input key="username"/>
+		</div>
+		<div v-else>
+			邮箱名: <input key="password"/>
+		</div>
+
+
+		<!-- <div v-if="show === 'a'">This is A</div>
+		<div v-else-if="show === 'b'">This is B</div>
+		<div v-else>This is other</div> -->
+
+		<!-- <div v-if="show"></div>
+		<div v-else="show"></div> -->
+
+		<!-- <div v-show="show">{{message}}</div> -->
+	</div>
+	<script>
+		var vm = new Vue(
+		{
+			el: "#app",
+			data: 
+			{
+				show: false,
+			}
+		})
+	</script>
+	
+</body>
+</html>

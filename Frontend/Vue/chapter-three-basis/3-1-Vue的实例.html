@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3-1-Vue的实例</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+
+	<div id="root">
+		<div v-on:click="handleClick">
+			{{message}}
+		</div>
+		<item></item>
+	</div>
+	
+	<script>
+
+		Vue.component('item',
+		{
+			template: '<div>HELLO WORLD</div>'
+		})
+
+		var vm = new Vue(
+		{
+			el:'#root',
+			data:
+			{
+				message: 'hello world'
+			},
+			methods: 
+			{
+				handleClick: function()
+				{
+					alert("hello")
+				}
+			}
+		})
+	</script>
+</body>
+</html>

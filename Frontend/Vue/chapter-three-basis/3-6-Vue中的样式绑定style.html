@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3-6-Vue中的样式绑定</title>
+	<script src="./vue.js"></script>
+	<style>
+		.activated 
+		{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 数组 -->
+		<div :style="[styleObj, {fontSize: '50px'}]" @click="handleDivClick">
+			Hello world
+		</div>
+		<!-- 样式 -->
+<!-- 		<div :style="styleObj" @click="handleDivClick">
+			Hello World
+		</div> -->
+
+	</div>
+
+	<script>
+		var vm = new Vue(
+		{
+			el: "#app",
+			data: 
+			{
+				styleObj: 
+				{
+					color: "black"
+				}
+			},
+			methods: {
+				handleDivClick: function()
+				{
+					this.styleObj.color = this.styleObj.color === "black" ? "red" : "black";
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>
