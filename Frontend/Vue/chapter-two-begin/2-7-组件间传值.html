@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2-7-组件间传值</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+
+	<div id="root">
+		<div>
+			<input type="text" v-model="todoValue"/>
+			<button v-on:click="handleBtnClick">提交</button>
+		</div>
+		<ul>
+<!-- 			<li v-for="item in list">
+				{{item}}
+			</li> -->
+			<todo-item 	v-bind:content= "item" 
+						v-bind:index= "index"
+						v-for="(item, index) in list"
+						v-on:delete="handleItemDelete ">
+			</todo-item>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+		/**
+		 * 点击内容删除内容。子组件传值给父组件。
+		 * Vue不要操作DOM，而是让数据改变，页面自动跟着变化。
+		 */
+		
+		/**
+		 * 父子组件传值的方式
+		 * 1. 	父组件向子组件传值
+		 * 		通过v-bind的形式来进行数据的传递。子组件一定要接收，props:['','']来接收
+		 * 2.	子组件向父组件传值
+		 * 		通过$emit的方式，通过事件触发，向上一层触发事件。子组件触发的时间，父组件刚好在监听。
+		 * 		监听过后，就能获取子组件带出来的内容。实现子组件向父组件传值的功能。 
+		 */
+		
+		var TodoItem = 
+		{
+			props: ['content', 'index'],
+			template: "<li @click='handleItemClick'>{{content}}</li>",
+			// 子组件中绑定一个事件. v-on:click的缩写是@click.
+			// 绑定事件写在子组件中
+			methods:
+			{
+				handleItemClick: function()
+				{
+					// alert("click")
+					this.$emit("delete", this.index);	// emit向外触发事件
+				}
+			}
+
+		}
+
+		var app = new Vue(
+		{
+			el: "#root",
+			components: 
+			{
+				TodoItem: TodoItem
+			},
+			data: 
+			{
+				list: [],
+				todoValue: ''
+			},
+			methods: 
+			{
+				handleBtnClick: function()
+				{
+					this.list.push(this.todoValue)
+					this.todoValue = ''
+				},
+				handleItemDelete: function(index)
+				{
+					// alert("delete");
+					// alert(index)
+					this.list.splice(index, 1);
+				}
+			}
+		})
+
+	</script>
+
+
+</body>
+</html>
