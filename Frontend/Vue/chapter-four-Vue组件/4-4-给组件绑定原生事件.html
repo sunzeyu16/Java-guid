@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-4-给组件绑定原生事件</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	
+	<div id="root">
+		<child @click.native="handleClick"></child>
+	</div>
+
+	<script>
+		// 监听原生事件
+		// Vue.component('child',{
+		// 	template: '<div @click="handleChildClick">Child</div>',
+		// 	methods: {
+		// 		handleChildClick: function(){
+		// 			// alert('child click')
+		// 			this.$emit('click')
+		// 		}
+		// 	}
+		// })
+		 
+		Vue.component('child', {
+			template: '<div>Child</div>'
+		})
+
+		var vm = new Vue({
+			el: '#root',
+			methods:{
+				handleClick: function(){
+					alert('click')
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>
