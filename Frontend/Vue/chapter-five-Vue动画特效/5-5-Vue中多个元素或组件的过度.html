@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5-5-Vue中多个元素或组件的过度</title>
+	<script src="./vue.js"></script>
+	<style>
+		.v-enter,
+		.v-leave-to{
+			opacity: 0;
+		}
+		.v-enter-active,
+		.v-leave-active{
+			transition: opacity 1s;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="root">
+		<transition mode="out-in">
+			<!-- 动态组件 -->
+			<component :is="type"></component>
+			<!-- 组件之间过度 -->
+<!-- 			<child v-if="show"></child>
+			<child-one v-else></child-one> -->
+
+			<!-- <div v-if="show" key="hello">Hello World</div>
+			<div v-else key="bye">Bye World</div> -->
+		</transition>
+		<button @click="handleClick">toggle</button>
+	</div>
+
+	<script>
+		Vue.component('child', {
+			template: '<div>child</div>'
+		})
+
+		Vue.component('child-one', {
+			template: '<div>child-one</div>'
+		})
+
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				type: 'child'
+				// show: true
+			},
+			methods: {
+				handleClick: function(){
+					this.type = this.type === 'child' ? 'child-one' : 'child'
+					// this.show = !this.show
+				}
+			}
+		})
+	</script>
+	
+</body>
+</html>

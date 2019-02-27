@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5-3-在Vue中同时使用过度和动画</title>
+	<script src="./vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="./animate.css">
+	<style>
+		.fade-enter,
+		.fade-leave-to{
+			opacity: 0;
+		}
+		.fade-enter-active,
+		.fade-leave-active{
+			transition: opacity 3s; 
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="root">
+		<!-- 动画播放时长设置：type="transition"以transition时长为主 -->
+		<!-- 动画时长自定义：  ：duration="10000"  10000是十秒 class在10秒之后被删除-->
+		<!-- 入场动画时长： :duration="{enter: 5000, leave: 10000}" -->
+		<transition 
+			:duration="{enter: 5000, leave: 10000}"
+			name="fade"
+			appear
+			enter-active-class="animated swing fade-enter-active"
+			leave-active-class="animated shake fade-leave-active"
+			appear-active-class="animated swing">
+			<div v-show="show">Hello World</div>
+		</transition>
+		<button @click="handleClick">点击</button>
+
+	</div>
+
+
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				show: true
+			},
+			methods: {
+				handleClick: function(){
+					this.show = !this.show
+				}
+			}
+		})
+	</script>
+</body>
+</html>
